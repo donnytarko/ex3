@@ -5,15 +5,17 @@
 
 class HealthPoints {
     int value, max;
-    friend HealthPoints operator+(const HealthPoints& first, const HealthPoints& second);
-    friend HealthPoints operator-(const HealthPoints& first, const HealthPoints& second);
+    friend HealthPoints operator+(HealthPoints hp, int change);
+    friend HealthPoints operator+(int change, HealthPoints hp);
+    friend HealthPoints operator-(HealthPoints hp, int change);
+    friend HealthPoints operator-(int change, HealthPoints hp);
     friend bool operator==(const HealthPoints& first, const HealthPoints& second);
     friend bool operator<(const HealthPoints&first, const HealthPoints& second);
     friend std::ostream& operator<<(std::ostream& os, const HealthPoints& hp);
     
     public:
     HealthPoints(int max = 100);
-    HealthPoints(const HealthPoints&) = default;
+    HealthPoints(const HealthPoints& other) = default;
     ~HealthPoints() = default;
     HealthPoints& operator+=(const HealthPoints& other);
     HealthPoints& operator-=(const HealthPoints& other);
@@ -29,17 +31,39 @@ HealthPoints::HealthPoints(int max) {
     value = max;
 }
 
-HealthPoints operator+(const HealthPoints& first, const HealthPoints& second){
-    HealthPoints hp(first.value + second.value);
+HealthPoints operator+(HealthPoints hp, int change){
+    if (hp.value + change >= hp.max) {
+        hp.value = hp.max;
+        return hp;
+    }
+    hp.value += change;
     return hp;
 }
 
-HealthPoints operator-(const HealthPoints& first, const HealthPoints& second){
-    if (first.value - second.value <= 0) {
-        HealthPoints hp(0);
+HealthPoints operator+(int change, HealthPoints hp){
+    if (hp.value + change >= hp.max) {
+        hp.value = hp.max;
         return hp;
     }
-    HealthPoints hp(first.value - second.value);
+    hp.value += change;
+    return hp;
+}
+
+HealthPoints operator-(HealthPoints hp, int change){
+    if (hp.value - change <= 0) {
+        hp.value = 0;
+        return hp;
+    }
+    hp.value -= change;
+    return hp;
+}
+
+HealthPoints operator-(int change, HealthPoints hp){
+    if (hp.value - change <= 0) {
+        hp.value = 0;
+        return hp;
+    }
+    hp.value -= change;
     return hp;
 }
 
