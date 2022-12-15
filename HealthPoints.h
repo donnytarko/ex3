@@ -35,6 +35,10 @@ HealthPoints operator+(const HealthPoints& first, const HealthPoints& second){
 }
 
 HealthPoints operator-(const HealthPoints& first, const HealthPoints& second){
+    if (first.value - second.value <= 0) {
+        HealthPoints hp(0);
+        return hp;
+    }
     HealthPoints hp(first.value - second.value);
     return hp;
 }
@@ -45,6 +49,10 @@ HealthPoints& HealthPoints::operator+=(const HealthPoints& other) {
 }
 
 HealthPoints& HealthPoints::operator-=(const HealthPoints& other) {
+    if (value <= other.value) {
+        value = 0;
+        return *this;
+    }
     value -= other.value;
     return *this;
 }
