@@ -46,15 +46,19 @@ bool testArithmaticOperators()
 
 	healthPoints1 -= 20; /* now has 80 points out of 100 */
 	testResult = testResult && checkHealthPointsValues(healthPoints1, 80, 100);
+	std::cout << "result 1 is " << testResult << std::endl;
 
 	healthPoints1 += 100; /* now has 100 points out of 100 */
 	testResult = testResult && checkHealthPointsValues(healthPoints1, 100, 100);
+	std::cout << "result 2 is " << testResult << std::endl;
 
 	healthPoints1 -= 150; /* now has 0 points out of 100 */
 	testResult = testResult && checkHealthPointsValues(healthPoints1, 0, 100);
+	std::cout << "result 3 is " << testResult << std::endl;
 
 	healthPoints2 = healthPoints2 - 160; /* now has 0 points out of 150 */
 	testResult = testResult && checkHealthPointsValues(healthPoints2, 0, 150);
+	std::cout << "result 4 is " << testResult << std::endl;
 
 	healthPoints2 = 160 + healthPoints1; /* now has 100 out of 100 */
 	testResult = testResult && checkHealthPointsValues(healthPoints2, 100, 100);
