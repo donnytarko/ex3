@@ -43,6 +43,7 @@ bool testArithmaticOperators()
 	std::cout << "1 init" << std::endl;
 	HealthPoints healthPoints2(150); /* has 150 points out of 150 */
 	std::cout << "2 init" << std::endl;
+	std::cout << "result 0 is " << testResult << std::endl;
 
 	healthPoints1 -= 20; /* now has 80 points out of 100 */
 	testResult = testResult && checkHealthPointsValues(healthPoints1, 80, 100);
