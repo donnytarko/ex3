@@ -1,7 +1,7 @@
 #ifndef HEALTH_POINTS
 #define HEALTH_POINTS
 
-#include <iostream>;
+#include <iostream>
 
 class HealthPoints {
     int value, max;
@@ -27,7 +27,7 @@ HealthPoints::HealthPoints(int max) {
     }
     max = max;
     value = max;
-};
+}
 
 HealthPoints operator+(const HealthPoints& first, const HealthPoints& second){
     HealthPoints hp(first.value + second.value);
