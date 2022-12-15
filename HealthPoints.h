@@ -73,11 +73,13 @@ HealthPoints& HealthPoints::operator+=(const HealthPoints& other) {
 }
 
 HealthPoints& HealthPoints::operator-=(const HealthPoints& other) {
+    std::cout << "value here is " << value << std::endl;
     if (value <= other.value) {
         value = 0;
         return *this;
     }
     value -= other.value;
+    std::cout << "value over here is " << value << std::endl;
     return *this;
 }
 
