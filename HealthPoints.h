@@ -109,6 +109,7 @@ bool operator>=(const HealthPoints& first, const HealthPoints& second) {
 
 std::ostream& operator<<(std::ostream& os, const HealthPoints& hp) {
     os << hp.value << '(' << hp.max << ')';
+    std::cout << hp.value << '(' << hp.max << ')';
     return os;
 }
 
