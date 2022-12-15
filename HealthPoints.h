@@ -80,6 +80,7 @@ HealthPoints& HealthPoints::operator-=(const HealthPoints& other) {
     }
     value -= other.value;
     std::cout << "value over here is " << value << std::endl;
+    std::cout << "max over here is " << max << std::endl;
     return *this;
 }
 
