@@ -23,12 +23,12 @@ class HealthPoints {
 };
 
 
-HealthPoints::HealthPoints(int max) {
-    if (max <= 0) {
+HealthPoints::HealthPoints(int maxHp) {
+    if (maxHp <= 0) {
         throw HealthPoints::InvalidArgument::Bad;
     }
-    max = max;
-    value = max;
+    max = maxHp;
+    value = maxHp;
 }
 
 HealthPoints operator+(HealthPoints hp, int change){
@@ -74,6 +74,8 @@ HealthPoints& HealthPoints::operator+=(const HealthPoints& other) {
 
 HealthPoints& HealthPoints::operator-=(const HealthPoints& other) {
     std::cout << "value here is " << value << std::endl;
+    std::cout << "max here is " << max << std::endl;
+
     if (value <= other.value) {
         value = 0;
         return *this;
