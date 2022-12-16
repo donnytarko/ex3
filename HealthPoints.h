@@ -78,16 +78,11 @@ HealthPoints& HealthPoints::operator+=(const HealthPoints& other) {
 }
 
 HealthPoints& HealthPoints::operator-=(const HealthPoints& other) {
-    std::cout << "value here is " << value << std::endl;
-    std::cout << "max here is " << max << std::endl;
-
     if (value <= other.value) {
         value = 0;
         return *this;
     }
     value -= other.value;
-    std::cout << "value over here is " << value << std::endl;
-    std::cout << "max over here is " << max << std::endl;
     return *this;
 }
 
@@ -117,7 +112,6 @@ bool operator>=(const HealthPoints& first, const HealthPoints& second) {
 
 std::ostream& operator<<(std::ostream& os, const HealthPoints& hp) {
     os << hp.value << '(' << hp.max << ')';
-    std::cout << hp.value << '(' << hp.max << ')';
     return os;
 }
 

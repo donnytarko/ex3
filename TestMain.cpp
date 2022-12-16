@@ -18,7 +18,7 @@ namespace QueueTests {
 }
 
 std::function<bool()> testsList[] = {
-	//HealthPointsTests::testInitialization,
+	HealthPointsTests::testInitialization,
 	HealthPointsTests::testArithmaticOperators,
 	HealthPointsTests::testComparisonOperators,
 	HealthPointsTests::testOutputOperator,
