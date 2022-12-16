@@ -68,7 +68,12 @@ HealthPoints operator-(int change, HealthPoints hp){
 }
 
 HealthPoints& HealthPoints::operator+=(const HealthPoints& other) {
-    value += other.value;
+    if (value += other.value >= max) {
+        value = max;
+    }
+    else {
+        value += other.value;
+    }
     return *this;
 }
 
