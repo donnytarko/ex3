@@ -2,6 +2,7 @@
 #include <sstream>
 
 #include "HealthPoints.h"
+#include "Queue.h"
 
 namespace HealthPointsTests {
 
