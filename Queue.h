@@ -146,7 +146,7 @@ Queue<T>::Iterator::Iterator(const Queue<T>* queue, int index) :
 
 template<class T>
 const T& Queue<T>::Iterator::operator*() const {
-    assert(index >= 0 && index < set->getSize());
+    assert(index >= 0 && index < queue->getSize());
     return queue->data[index];
 } 
 
