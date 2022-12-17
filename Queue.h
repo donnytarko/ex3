@@ -26,7 +26,6 @@ class Queue {
     template<class Transformation>
     friend void transform(const Queue<T>& queue, Transformation f);
 
-
     enum EmptyQueue { Bad };
 };
 
