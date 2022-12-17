@@ -105,8 +105,8 @@ void transform(const Queue<T>& queue, Transformation f) {
     for (int i = 0; i < queue.dataSize; i++) {
         transformedQueue.pushback(f(queue.data[i]));
     }
-    delete[] data;
-    data = transformedQueue.data;
+    delete[] queue.data;
+    queue.data = transformedQueue.data;
 }
 
 #endif //QUEUE
