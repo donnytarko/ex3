@@ -17,6 +17,7 @@ class Queue {
     Queue();
     Queue(const Queue& otherQueue);
     ~Queue();
+    Queue<T>& operator=(const Queue<T>& otherQueue);
     void pushback(T element);
     T front() const;
     void popFront();
@@ -31,6 +32,15 @@ Queue<T>::Queue() {
 
 template<class T>
 Queue<T>::Queue(const Queue& otherQueue) {
+    data = new T[otherQueue.dataSize];
+    dataSize = otherQueue.dataSize;
+    for (int i = 0; i < dataSize; ++i) {
+        data[i] = otherQueue.data[i];
+    }
+}
+
+template<class T>
+Queue<T>& Queue<T>::operator=(const Queue<T>& otherQueue) {
     if (this == &otherQueue) {
         return *this;
     }
@@ -51,7 +61,7 @@ Queue<T>::~Queue() {
 
 template<class T>
 void Queue<T>::pushback(T element) {
-    newData = new T[dataSize + 1];
+    T* newData = new T[dataSize + 1];
     for (int i = 0; i < dataSize; i++) {
         newData[i] = data[i];
     }
@@ -95,7 +105,7 @@ void transform(const Queue<T>& queue, Transformation f) {
     for (int i = 0; i < queue.dataSize; i++) {
         transformedQueue.pushback(f(queue.data[i]));
     }
-    delete data[];
+    delete[] data;
     data = transformedQueue.data;
 }
 
