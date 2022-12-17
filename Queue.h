@@ -22,6 +22,9 @@ class Queue {
     T& front() const;
     void popFront();
     int size() const;
+    class Iterator;
+    Iterator begin() const;
+    Iterator end() const; 
 };
 
 template<class T>
@@ -105,8 +108,63 @@ void transform(const Queue<T>& queue, Transformation f) {
     for (int i = 0; i < queue.dataSize; i++) {
         transformedQueue.pushBack(f(queue.data[i]));
     }
-    delete[] queue.data;
     queue.data = transformedQueue.data;
+}
+
+
+template<class T>
+class Queue<T>::Iterator {
+    const Queue<T>* queue;
+    int index;
+    Iterator(const Queue<T>* queue, int index);
+    friend class Queue<T>;
+
+    public:
+    const T& operator*() const;
+    Iterator& operator++();
+    Iterator operator++(int);
+    bool operator==(const Iterator& iterator) const;
+    bool operator!=(const Iterator& iterator) const;
+    Iterator(const Iterator&) = default;
+    Iterator& operator=(const Iterator&) = default;
+};
+
+template<class T>
+typename Queue<T>::Iterator Queue<T>::begin() const {
+    return Iterator(this, 0);
+}
+
+template<class T>
+typename Queue<T>::Iterator Queue<T>::end() const {
+    return Iterator(this, dataSize);
+}
+
+template<class T>
+Queue<T>::Iterator::Iterator(const Queue<T>* queue, int index) :
+    queue(queue), index(index)
+{}
+
+template<class T>
+const T& Queue<T>::Iterator::operator*() const {
+    assert(index >= 0 && index < set->getSize());
+    return queue->data[index];
+} 
+
+template<class T>
+typename Queue<T>::Iterator& Queue<T>::Iterator::operator++() {
+    ++index;
+    return *this;
+}
+
+template<class T>
+bool Queue<T>::Iterator::operator==(const Iterator& i) const {
+    assert(queue == i.queue);
+    return index == i.index;
+} 
+
+template<class T>
+bool Queue<T>::Iterator::operator!=(const Iterator& i) const {
+    return !(*this == i);
 }
 
 #endif //QUEUE
