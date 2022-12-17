@@ -25,6 +25,8 @@ class Queue {
     class Iterator;
     Iterator begin() const;
     Iterator end() const; 
+
+    enum EmptyQueue { Bad };
 };
 
 template<class T>
@@ -127,6 +129,7 @@ class Queue<T>::Iterator {
     bool operator!=(const Iterator& iterator) const;
     Iterator(const Iterator&) = default;
     Iterator& operator=(const Iterator&) = default;
+    enum InvalidOperation { Bad };
 };
 
 template<class T>
