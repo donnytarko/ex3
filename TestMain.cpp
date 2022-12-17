@@ -2,6 +2,7 @@
 #include <functional>
 
 #include "TestUtils.h"
+#include "Queue.h"
 
 namespace HealthPointsTests {
 	bool testInitialization();
