@@ -3,7 +3,7 @@
 #include "iostream"
 
 #define AGREGATE_TEST_RESULT(res, cond) (res) = ((res) && (cond))
-
+/*
 static bool isEven(int n)
 {
 	return (n % 2) == 0;
@@ -13,7 +13,7 @@ static void setFortyTwo(int& n)
 {
 	n = 42;
 }
-
+*/
 namespace QueueTests {
 
 bool testQueueMethods()
