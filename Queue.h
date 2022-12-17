@@ -12,16 +12,16 @@ class Queue {
     friend Queue<T> filter(const Queue<T>& queue, Condition c);
     template<class Transformation>
     friend void transform(const Queue<T>& queue, Transformation f);
+    void pushBack(T element);
+    T front() const;
+    void popFront();
+    int size() const;
 
     private:
     Queue();
     Queue(const Queue& otherQueue);
     ~Queue();
     Queue<T>& operator=(const Queue<T>& otherQueue);
-    void pushback(T element);
-    T front() const;
-    void popFront();
-    int size() const;
 };
 
 template<class T>
@@ -60,7 +60,7 @@ Queue<T>::~Queue() {
 
 
 template<class T>
-void Queue<T>::pushback(T element) {
+void Queue<T>::pushBack(T element) {
     T* newData = new T[dataSize + 1];
     for (int i = 0; i < dataSize; i++) {
         newData[i] = data[i];
@@ -93,7 +93,7 @@ Queue<T> filter(const Queue<T>& queue, Condition c) {
     Queue<T> filteredQueue;
     for (int i = 0; i < queue.dataSize; i++) {
         if (c(queue.data[i])) {
-            filteredQueue.pushback(queue.data[i]);
+            filteredQueue.pushBack(queue.data[i]);
         }
     }
     return filteredQueue;
@@ -103,7 +103,7 @@ template<class T, class Transformation>
 void transform(const Queue<T>& queue, Transformation f) {
     Queue<T> transformedQueue;
     for (int i = 0; i < queue.dataSize; i++) {
-        transformedQueue.pushback(f(queue.data[i]));
+        transformedQueue.pushBack(f(queue.data[i]));
     }
     delete[] queue.data;
     queue.data = transformedQueue.data;
