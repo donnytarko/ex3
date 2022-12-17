@@ -98,7 +98,7 @@ bool testExceptions()
 
 	return testResult;
 }
-
+/*
 bool testConstQueue()
 {
 	bool testResult = true;
@@ -124,5 +124,5 @@ bool testConstQueue()
 
 	return testResult;
 }
-
+*/
 }
