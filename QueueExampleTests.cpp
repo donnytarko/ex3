@@ -24,6 +24,7 @@ bool testQueueMethods()
 	queue1.pushBack(1);
 	queue1.pushBack(2);
 	int front1 = queue1.front();
+	std::cout << "front is" << queue1.front() <<std::endl;
 	AGREGATE_TEST_RESULT(testResult, front1 == 1);
 	std::cout << "test result at 2.1 is" << testResult <<std::endl;
 	queue1.front() = 3;
