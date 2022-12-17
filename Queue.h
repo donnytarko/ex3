@@ -6,7 +6,7 @@ const int initialSize = 0;
 
 template<class T>
 class Queue {
-    int size;
+    int dataSize;
     T* data;
     template<class Condition>
     friend Queue<T> filter(const Queue<T>& queue, Condition c);
@@ -25,8 +25,8 @@ class Queue {
 
 template<class T>
 Queue<T>::Queue() {
-    size = initialSize;
-    data = new data[initialSize];
+    dataSize = initialSize;
+    data = new T[initialSize];
 }
 
 template<class T>
@@ -35,9 +35,9 @@ Queue<T>::Queue(const Queue& otherQueue) {
         return *this;
     }
     delete[] data;
-    data = new T[otherQueue.size];
-    size = otherQueue.size;
-    for (int i = 0; i < size; ++i) {
+    data = new T[otherQueue.dataSize];
+    dataSize = otherQueue.dataSize;
+    for (int i = 0; i < dataSize; ++i) {
         data[i] = otherQueue.data[i];
     }
     return *this;
@@ -51,37 +51,37 @@ Queue<T>::~Queue() {
 
 template<class T>
 void Queue<T>::pushback(T element) {
-    newData = new T[size + 1];
-    for (int i = 0; i < size; i++) {
+    newData = new T[dataSize + 1];
+    for (int i = 0; i < dataSize; i++) {
         newData[i] = data[i];
     }
-    newData[size] = element;
+    newData[dataSize] = element;
     delete[] data;
     data = newData;
-    size += 1;
+    dataSize += 1;
 }
 
 
 template<class T>
 T Queue<T>::front() const {
-    return data[size - 1];
+    return data[dataSize - 1];
 }
 
 
 template<class T>
 void Queue<T>::popFront() {
-    size --;
+    dataSize --;
 }
 
 template<class T>
 int Queue<T>::size() const {
-    return size;
+    return dataSize;
 }
 
 template<class T, class Condition>
 Queue<T> filter(const Queue<T>& queue, Condition c) {
     Queue<T> filteredQueue;
-    for (int i = 0; i < queue.size; i++) {
+    for (int i = 0; i < queue.dataSize; i++) {
         if (c(queue.data[i])) {
             filteredQueue.pushback(queue.data[i]);
         }
@@ -92,7 +92,7 @@ Queue<T> filter(const Queue<T>& queue, Condition c) {
 template<class T, class Transformation>
 void transform(const Queue<T>& queue, Transformation f) {
     Queue<T> transformedQueue;
-    for (int i = 0; i < queue.size; i++) {
+    for (int i = 0; i < queue.dataSize; i++) {
         transformedQueue.pushback(f(queue.data[i]));
     }
     delete data[];
