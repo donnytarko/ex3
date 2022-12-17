@@ -14,7 +14,7 @@ class Queue {
     friend void transform(const Queue<T>& queue, Transformation f);
 
     public:
-    Queue() = default;
+    Queue();
     Queue(const Queue& otherQueue);
     ~Queue();
     Queue<T>& operator=(const Queue<T>& otherQueue);

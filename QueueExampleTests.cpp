@@ -39,7 +39,7 @@ bool testQueueMethods()
 
 	return testResult;
 }
-
+/*
 bool testModuleFunctions()
 {
 	bool testResult = true;
@@ -120,5 +120,5 @@ bool testConstQueue()
 
 	return testResult;
 }
-
+*/
 }
