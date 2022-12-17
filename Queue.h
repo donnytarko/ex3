@@ -8,11 +8,7 @@ template<class T>
 class Queue {
     int dataSize;
     T* data;
-    template<class Condition>
-    friend Queue<T> filter(const Queue<T>& queue, Condition c);
-    template<class Transformation>
-    friend void transform(const Queue<T>& queue, Transformation f);
-
+    
     public:
     Queue();
     Queue(const Queue& otherQueue);
@@ -25,6 +21,11 @@ class Queue {
     class Iterator;
     Iterator begin() const;
     Iterator end() const; 
+    template<class Condition>
+    friend Queue<T> filter(const Queue<T>& queue, Condition c);
+    template<class Transformation>
+    friend void transform(const Queue<T>& queue, Transformation f);
+
 
     enum EmptyQueue { Bad };
 };
