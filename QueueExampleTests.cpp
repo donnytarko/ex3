@@ -25,17 +25,20 @@ bool testQueueMethods()
 	queue1.pushBack(2);
 	int front1 = queue1.front();
 	AGREGATE_TEST_RESULT(testResult, front1 == 1);
-
+	std::cout << "test result at 2.1 is" << testResult <<std::endl;
 	queue1.front() = 3;
 	front1 = queue1.front();
 	AGREGATE_TEST_RESULT(testResult, front1 == 3);
+	std::cout << "test result at 2.2 is" << testResult <<std::endl;
 
 	queue1.popFront();
 	front1 = queue1.front();
 	AGREGATE_TEST_RESULT(testResult, front1 == 2);
+	std::cout << "test result at 2.3 is" << testResult <<std::endl;
 
 	int size1 = queue1.size();
 	AGREGATE_TEST_RESULT(testResult, size1 == 1);
+	std::cout << "test result at 3.4 is" << testResult <<std::endl;
 
 	return testResult;
 }
