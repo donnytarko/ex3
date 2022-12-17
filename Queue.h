@@ -63,7 +63,7 @@ template<class T>
 void Queue<T>::pushBack(T element) {
     T* newData = new T[dataSize + 1];
     newData[0] = element;
-    for (int i = 1; i < dataSize; i++) {
+    for (int i = 1; i < dataSize + 1; i++) {
         newData[i] = data[i];
     }
     newData[dataSize] = element;
