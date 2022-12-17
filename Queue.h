@@ -12,16 +12,16 @@ class Queue {
     friend Queue<T> filter(const Queue<T>& queue, Condition c);
     template<class Transformation>
     friend void transform(const Queue<T>& queue, Transformation f);
-    void pushBack(T element);
-    T front() const;
-    void popFront();
-    int size() const;
 
-    private:
-    Queue();
+    public:
+    Queue() = default;
     Queue(const Queue& otherQueue);
     ~Queue();
     Queue<T>& operator=(const Queue<T>& otherQueue);
+    void pushBack(T element);
+    T& front() const;
+    void popFront();
+    int size() const;
 };
 
 template<class T>
@@ -73,7 +73,7 @@ void Queue<T>::pushBack(T element) {
 
 
 template<class T>
-T Queue<T>::front() const {
+T& Queue<T>::front() const {
     return data[dataSize - 1];
 }
 

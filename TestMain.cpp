@@ -2,7 +2,6 @@
 #include <functional>
 
 #include "TestUtils.h"
-#include "Queue.h"
 
 namespace HealthPointsTests {
 	bool testInitialization();
@@ -25,7 +24,7 @@ std::function<bool()> testsList[] = {
 	HealthPointsTests::testOutputOperator,
 
 	QueueTests::testQueueMethods,
-	QueueTests::testModuleFunctions,
+	//QueueTests::testModuleFunctions,
 	//QueueTests::testExceptions,
 	//QueueTests::testConstQueue
 };
