@@ -62,7 +62,8 @@ Queue<T>::~Queue() {
 template<class T>
 void Queue<T>::pushBack(T element) {
     T* newData = new T[dataSize + 1];
-    for (int i = 0; i < dataSize; i++) {
+    newData[0] = element;
+    for (int i = 1; i < dataSize; i++) {
         newData[i] = data[i];
     }
     newData[dataSize] = element;
