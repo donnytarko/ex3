@@ -104,7 +104,7 @@ template<class T, class Transformation>
 void transform(Queue<T>& queue, Transformation f) {
     Queue<T> transformedQueue;
     for (typename Queue<T>::Iterator it = queue.begin(); it != queue.end(); it++) {
-        transformedQueue.pushBack(f(*it));
+        transformedQueue.pushBack(f(*(*it)));
     }
     queue = transformedQueue;
 }
@@ -144,7 +144,7 @@ Queue<T>::Iterator::Iterator(const Queue<T>* queue, int index) :
 {}
 
 template<class T>
-T& Queue<T>::Iterator::operator*() const {
+const T& Queue<T>::Iterator::operator*() const {
     return queue->data[index];
 } 
 
