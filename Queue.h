@@ -91,23 +91,22 @@ int Queue<T>::size() const {
 
 template<class T, class Condition>
 Queue<T> filter(const Queue<T>& queue, Condition c) {
-
     Queue<T> filteredQueue;
-    /*for (int i = 0; i < queue.dataSize; i++) {
-        if (c(queue.data[i])) {
-            filteredQueue.pushBack(queue.data[i]);
+    for (typename Queue<T>::Iterator it = queue.begin(); it != queue.end(); it++) {
+        if (c(it*)) {
+            filteredQueue.pushBack(it*);
         }
-    }*/
+    }
     return filteredQueue;
 }
 
 template<class T, class Transformation>
 void transform(const Queue<T>& queue, Transformation f) {
     Queue<T> transformedQueue;
-    /*for (int i = 0; i < queue.dataSize; i++) {
-        transformedQueue.pushBack(f(queue.data[i]));
-    }*/
-    //queue.data = transformedQueue.data;
+    for (typename Queue<T>::Iterator it = queue.begin(); it != queue.end(); it++) {
+        transformedQueue.pushBack(f(it*));
+    }
+    queue = transformedQueue;
 }
 
 
