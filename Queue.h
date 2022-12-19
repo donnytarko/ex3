@@ -93,18 +93,18 @@ template<class T, class Condition>
 Queue<T> filter(const Queue<T>& queue, Condition c) {
     Queue<T> filteredQueue;
     for (typename Queue<T>::Iterator it = queue.begin(); it != queue.end(); it++) {
-        if (c(it*)) {
-            filteredQueue.pushBack(it*);
+        if (c(*it)) {
+            filteredQueue.pushBack(*it);
         }
     }
     return filteredQueue;
 }
 
 template<class T, class Transformation>
-void transform(const Queue<T>& queue, Transformation f) {
+void transform(Queue<T>& queue, Transformation f) {
     Queue<T> transformedQueue;
     for (typename Queue<T>::Iterator it = queue.begin(); it != queue.end(); it++) {
-        transformedQueue.pushBack(f(it*));
+        transformedQueue.pushBack(f(*it));
     }
     queue = transformedQueue;
 }
