@@ -21,10 +21,6 @@ class Queue {
     class Iterator;
     Iterator begin() const;
     Iterator end() const; 
-    template<class Condition>
-    friend Queue<T> filter(const Queue<T>& queue, Condition c);
-    template<class Transformation>
-    friend void transform(const Queue<T>& queue, Transformation f);
 
     enum EmptyQueue { Bad };
 };
@@ -94,7 +90,7 @@ int Queue<T>::size() const {
 }
 
 template<class T, class Condition>
-Queue<T> filter<Condition>(const Queue<T>& queue, Condition c) {
+Queue<T> filter(const Queue<T>& queue, Condition c) {
     Queue<T> filteredQueue;
     for (int i = 0; i < queue.dataSize; i++) {
         if (c(queue.data[i])) {
@@ -105,7 +101,7 @@ Queue<T> filter<Condition>(const Queue<T>& queue, Condition c) {
 }
 
 template<class T, class Transformation>
-void transform<Transformation>(const Queue<T>& queue, Transformation f) {
+void transform(const Queue<T>& queue, Transformation f) {
     Queue<T> transformedQueue;
     for (int i = 0; i < queue.dataSize; i++) {
         transformedQueue.pushBack(f(queue.data[i]));
