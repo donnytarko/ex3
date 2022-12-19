@@ -93,8 +93,7 @@ int Queue<T>::size() const {
     return dataSize;
 }
 
-template<class T>
-template<class Condition>
+template<class T, class Condition>
 Queue<T> filter(const Queue<T>& queue, Condition c) {
     Queue<T> filteredQueue;
     for (int i = 0; i < queue.dataSize; i++) {
@@ -105,8 +104,7 @@ Queue<T> filter(const Queue<T>& queue, Condition c) {
     return filteredQueue;
 }
 
-template<class T>
-template<class Transformation>
+template<class T, class Transformation>
 void transform(const Queue<T>& queue, Transformation f) {
     Queue<T> transformedQueue;
     for (int i = 0; i < queue.dataSize; i++) {
