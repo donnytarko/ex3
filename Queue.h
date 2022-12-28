@@ -8,7 +8,11 @@ template<class T>
 class Queue {
     int dataSize;
     T* data;
-    
+    template<class T, class Condition>
+    friend Queue<T> filter(const Queue<T>& queue, Condition c);
+    template<class T, class Transformation>
+    friend void transform(const Queue<T>& queue, Transformation f);
+
     public:
     Queue();
     Queue(const Queue& otherQueue);
@@ -101,7 +105,7 @@ Queue<T> filter(const Queue<T>& queue, Condition c) {
 }
 
 template<class T, class Transformation>
-void transform(Queue<T>& queue, Transformation f) {
+void transform(const Queue<T>& queue, Transformation f) {
     Queue<T> transformedQueue;
     for (typename Queue<T>::Iterator it = queue.begin(); it != queue.end(); it++) {
         transformedQueue.pushBack(f(*it));
