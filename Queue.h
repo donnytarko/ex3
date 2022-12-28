@@ -101,7 +101,7 @@ Queue<T2> filter(const Queue<T2>& queue, Condition c) {
             filteredQueue->pushBack(iteration);
         }
     }
-    return filteredQueue;
+    return *filteredQueue;
 }
 
 template<class T2, class Transformation>
