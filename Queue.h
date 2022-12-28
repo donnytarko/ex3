@@ -1,6 +1,7 @@
 
 #ifndef QUEUE
 #define QUEUE
+#include <iostream>
 
 const int initialSize = 0;
 
@@ -50,6 +51,7 @@ Queue<T>& Queue<T>::operator=(const Queue<T>& otherQueue) {
         return *this;
     }
     std::cout << "deleting stuff now = operator" << std::endl;
+
     delete[] data;
     data = new T[otherQueue.dataSize];
     dataSize = otherQueue.dataSize;

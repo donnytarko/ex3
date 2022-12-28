@@ -3,6 +3,7 @@
 
 #include "HealthPoints.h"
 #include "Queue.h"
+#include <iostream>
 
 namespace HealthPointsTests {
 
