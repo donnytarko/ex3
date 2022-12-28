@@ -59,7 +59,7 @@ bool testModuleFunctions()
 		queue4.popFront();
 	}
 
-
+	std::cout << "test restult after queue 4 is " << testResult << std::endl;
 	Queue<int> queue5;
 	for (int i = 1; i <= 5; i++) {
 		queue5.pushBack(i);
