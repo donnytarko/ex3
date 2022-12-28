@@ -96,7 +96,7 @@ int Queue<T>::size() const {
 template<class T2, class Condition>
 Queue<T2> filter(const Queue<T2>& queue, Condition c) {
     Queue<T2> *filteredQueue = new Queue<T2>();
-    for ( T iteration : queue) {
+    for ( T2 iteration : queue) {
         if (c(iteration)) {
             filteredQueue->pushBack(iteration);
         }
