@@ -25,7 +25,7 @@ std::function<bool()> testsList[] = {
 
 	QueueTests::testQueueMethods,
 	QueueTests::testModuleFunctions,
-	//QueueTests::testExceptions,
+	QueueTests::testExceptions,
 	//QueueTests::testConstQueue
 };
 
