@@ -81,6 +81,9 @@ void Queue<T>::pushBack(T element) {
 
 template<class T>
 T& Queue<T>::front() const {
+    if (dataSize == 0) {
+        throw Queue<T>::EmptyQueue::Bad
+    }
     return data[dataSize - 1];
 }
 
@@ -163,6 +166,9 @@ const T& Queue<T>::Iterator::operator*() const {
 
 template<class T>
 typename Queue<T>::Iterator& Queue<T>::Iterator::operator++() {
+    if (index == 0) {
+        throw Queue<T>::Iterator::InvalidOperation::Bad;
+    }
     --index;
     return *this;
 }
