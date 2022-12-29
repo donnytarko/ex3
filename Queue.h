@@ -166,7 +166,7 @@ const T& Queue<T>::Iterator::operator*() const {
 
 template<class T>
 typename Queue<T>::Iterator& Queue<T>::Iterator::operator++() {
-    if (index == 0) {
+    if (index == -1) {
         throw Queue<T>::Iterator::InvalidOperation::Bad;
     }
     --index;
