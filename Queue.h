@@ -143,7 +143,7 @@ class Queue<T>::Const_iterator {
 
 template<class T>
 typename Queue<T>::Iterator Queue<T>::begin() const {
-    return Iterator(this, dataSize);
+    return Iterator(this, dataSize - 1);
 }
 
 template<class T>
