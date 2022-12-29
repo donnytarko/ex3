@@ -15,7 +15,6 @@ static void setFortyTwo(int& n)
 }
 
 namespace QueueTests {
-/*
 bool testQueueMethods()
 {
 	bool testResult = true;
@@ -42,8 +41,8 @@ bool testQueueMethods()
 	std::cout << "test result at 3.4 is" << testResult <<std::endl;
 
 	return testResult;
-}*/
-/*
+}
+
 bool testModuleFunctions()
 {
 	bool testResult = true;
@@ -67,13 +66,13 @@ bool testModuleFunctions()
 	for (int i = 1; i <= 5; i++) {
 		queue5.pushBack(i);
 	}
-	//transform(queue5, setFortyTwo);
+	transform(queue5, setFortyTwo);
 	for (Queue<int>::Iterator i = queue5.begin(); i != queue5.end(); ++i) {
 		AGREGATE_TEST_RESULT(testResult,(*i == 42));
 	}
 
 	return testResult;
-}*/
+}
 /*
 bool testExceptions()
 {
