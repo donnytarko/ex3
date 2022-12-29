@@ -113,7 +113,7 @@ template<class T2, class Transformation>
 void transform(const Queue<T2>& queue, Transformation f) {
     const Queue<T2> transformedQueue;
     for (typename Queue<T2>::Iterator it = queue.begin(); it != queue.end(); it++) {
-        transformedQueue.pushBack(f(*it));
+        transformedQueue.pushBack(f(it));
     }
     queue = transformedQueue;
 }
