@@ -10,9 +10,9 @@ class Queue {
     int dataSize;
     T* data;
     template<class T2, class Condition>
-    friend Queue<T2> filter(const Queue<T2>& queue, Condition c);
+    friend Queue<T2> filter(Queue<T2>& queue, Condition c);
     template<class T2, class Transformation>
-    friend void transform(const Queue<T2>& queue, Transformation f);
+    friend void transform(Queue<T2>& queue, Transformation f);
 
     public:
     Queue();
@@ -99,7 +99,7 @@ int Queue<T>::size() const {
 }
 
 template<class T2, class Condition>
-Queue<T2> filter(const Queue<T2>& queue, Condition c) {
+Queue<T2> filter(Queue<T2>& queue, Condition c) {
     Queue<T2> *filteredQueue = new Queue<T2>();
     for ( T2 iteration : queue) {
         if (c(iteration)) {
@@ -110,10 +110,10 @@ Queue<T2> filter(const Queue<T2>& queue, Condition c) {
 }
 
 template<class T2, class Transformation>
-void transform(const Queue<T2>& queue, Transformation f) {
-    const Queue<T2> transformedQueue;
-    for (typename Queue<T2>::Iterator it = queue.begin(); it != queue.end(); it++) {
-        transformedQueue.pushBack(f(it));
+void transform(Queue<T2>& queue, Transformation f) {
+    Queue<T2> transformedQueue;
+    for (typename Queue<T2>::Iterator it : queue) {
+        transformedQueue.pushBack(f(*it));
     }
     queue = transformedQueue;
 }
@@ -136,6 +136,11 @@ class Queue<T>::Iterator {
     Iterator& operator=(const Iterator&) = default;
     enum InvalidOperation { Bad };
 };
+
+/*template<class T>
+class Queue<T>::Const_iterator {
+
+};*/
 
 template<class T>
 typename Queue<T>::Iterator Queue<T>::begin() const {
