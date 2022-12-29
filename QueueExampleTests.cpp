@@ -122,6 +122,7 @@ bool testConstQueue()
 	for (Queue<int>::ConstIterator i = constQueue.begin(); i != constQueue.end(); ++i) {
 		AGREGATE_TEST_RESULT(testResult, (*i == 42));
 	}
+	std::cout << "test restult way over here is " << testResult << std::endl;
 
 	bool exceptionThrown = false;
 	Queue<int>::ConstIterator endConstIterator = constQueue.end();
