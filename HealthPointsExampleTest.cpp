@@ -37,7 +37,7 @@ bool testInitialization()
 
 bool testArithmaticOperators()
 {
-	std::cout << "arithmacy" << std::endl;
+	std::cout << "Arithmacy" << std::endl;
 
 	bool testResult = true;
 	HealthPoints healthPoints1; /* has 100 points out of 100 */
