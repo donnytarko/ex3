@@ -105,10 +105,8 @@ Queue<T2> filter(Queue<T2>& queue, Condition c) {
     Queue<T2> *filteredQueue = new Queue<T2>();
     for ( T2 iteration : queue) {
         if (c(iteration)) {
-            std::cout << "pushing " << iteration << std::endl;
             filteredQueue->pushBack(iteration);
         }
-        std::cout << "iteration" << iteration << std::endl;
     }
     return *filteredQueue;
 }
