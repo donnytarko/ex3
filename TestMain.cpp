@@ -24,8 +24,8 @@ std::function<bool()> testsList[] = {
 	HealthPointsTests::testOutputOperator,
 
 	QueueTests::testQueueMethods,
-	QueueTests::testModuleFunctions,
-	QueueTests::testExceptions,
+	//QueueTests::testModuleFunctions,
+	//QueueTests::testExceptions,
 	//QueueTests::testConstQueue
 };
 
