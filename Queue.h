@@ -50,7 +50,6 @@ Queue<T>& Queue<T>::operator=(const Queue<T>& otherQueue) {
     if (this == &otherQueue) {
         return *this;
     }
-    std::cout << "deleting stuff now = operator" << std::endl;
 
     delete[] data;
     data = new T[otherQueue.dataSize];
@@ -63,7 +62,6 @@ Queue<T>& Queue<T>::operator=(const Queue<T>& otherQueue) {
 
 template<class T>
 Queue<T>::~Queue() {
-    std::cout << "deleting stuff now in deleting thingy" << std::endl;
     delete[] data;
 }
 
@@ -75,7 +73,6 @@ void Queue<T>::pushBack(T element) {
     for (int i = 1; i < dataSize + 1; i++) {
         newData[i] = data[i - 1];
     }
-    std::cout << "deleting stuff now in pushback" << std::endl;
     delete[] data;
     data = newData;
     dataSize += 1;
@@ -105,6 +102,7 @@ Queue<T2> filter(Queue<T2>& queue, Condition c) {
         if (c(iteration)) {
             filteredQueue->pushBack(iteration);
         }
+        std::cout << "iteration" << iteration << std::endl;
     }
     return *filteredQueue;
 }
