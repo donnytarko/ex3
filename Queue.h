@@ -113,7 +113,7 @@ template<class T2, class Transformation>
 void transform(Queue<T2>& queue, Transformation f) {
     Queue<T2> transformedQueue;
     for ( T2 it : queue) {
-        transformedQueue.pushBack(f(*it));
+        transformedQueue.pushBack(f(it));
     }
     queue = transformedQueue;
 }
