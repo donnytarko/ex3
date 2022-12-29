@@ -57,6 +57,7 @@ bool testModuleFunctions()
 	Queue<int> queue4 = filter(queue3, isEven);
 	for (int i = 2; i <= 10; i+=2) {
 		int front4 = queue4.front();
+		std::cout << "queue4 is" << front4 << std::endl;
 		AGREGATE_TEST_RESULT(testResult, front4 == i);
 		queue4.popFront();
 	}
@@ -73,7 +74,7 @@ bool testModuleFunctions()
 
 	return testResult;
 }
-
+/*
 bool testExceptions()
 {
 	bool testResult = true;
@@ -100,7 +101,7 @@ bool testExceptions()
 
 	return testResult;
 }
-
+*/
 /*
 bool testConstQueue()
 {
