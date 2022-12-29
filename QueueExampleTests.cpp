@@ -54,6 +54,13 @@ bool testModuleFunctions()
 	}
 		std::cout << "btw 3 and 4 " << std::endl;
 
+	Queue<int> pizzatime = queue3;
+
+	for (int i = 1; i <= 10; i++) {
+		int front4 = pizzatime.front();
+		std::cout << "pizzatime is " << front4 << std::endl;
+		pizzatime.popFront();
+	}
 	Queue<int> queue4 = filter(queue3, isEven);
 	for (int i = 2; i <= 10; i+=2) {
 		int front4 = queue4.front();
