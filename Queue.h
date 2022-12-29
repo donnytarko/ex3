@@ -112,7 +112,7 @@ Queue<T2> filter(Queue<T2>& queue, Condition c) {
 template<class T2, class Transformation>
 void transform(Queue<T2>& queue, Transformation f) {
     Queue<T2> transformedQueue;
-    for (typename Queue<T2>::Iterator it : queue) {
+    for ( T2 it : queue) {
         transformedQueue.pushBack(f(*it));
     }
     queue = transformedQueue;
