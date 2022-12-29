@@ -81,7 +81,7 @@ bool testModuleFunctions()
 
 	return testResult;
 }
-/*
+
 bool testExceptions()
 {
 	bool testResult = true;
@@ -108,7 +108,7 @@ bool testExceptions()
 
 	return testResult;
 }
-*/
+
 /*
 bool testConstQueue()
 {
