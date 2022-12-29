@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
 	if (argc < 2) {
 		for (int i = 0; i < NUMBER_OF_TESTS; ++i) {
 		runTest(testsList[i], "Test " + std::to_string(i + 1));
+		std::cout << "running a test" << std::endl;
 		}
 	}
 	else {
