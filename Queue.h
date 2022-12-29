@@ -111,7 +111,7 @@ Queue<T2> filter(const Queue<T2>& queue, Condition c) {
 
 template<class T2, class Transformation>
 void transform(const Queue<T2>& queue, Transformation f) {
-    Queue<T2> transformedQueue;
+    const Queue<T2> transformedQueue;
     for (typename Queue<T2>::Iterator it = queue.begin(); it != queue.end(); it++) {
         transformedQueue.pushBack(f(*it));
     }
