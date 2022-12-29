@@ -15,7 +15,7 @@ static void setFortyTwo(int& n)
 }
 
 namespace QueueTests {
-
+/*
 bool testQueueMethods()
 {
 	bool testResult = true;
@@ -42,8 +42,8 @@ bool testQueueMethods()
 	std::cout << "test result at 3.4 is" << testResult <<std::endl;
 
 	return testResult;
-}
-
+}*/
+/*
 bool testModuleFunctions()
 {
 	bool testResult = true;
@@ -73,7 +73,7 @@ bool testModuleFunctions()
 	}
 
 	return testResult;
-}
+}*/
 /*
 bool testExceptions()
 {
