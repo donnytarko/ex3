@@ -187,8 +187,8 @@ class Queue<T>::ConstIterator {
 
     public:
     const T& operator*() const;
-    ConstIterator& operator++() const;
-    ConstIterator operator++(int) const;
+    ConstIterator& operator++();
+    ConstIterator operator++(int);
     bool operator==(const ConstIterator& iterator) const;
     bool operator!=(const ConstIterator& iterator) const;
     ConstIterator(const ConstIterator&) = default;
@@ -219,7 +219,7 @@ const T& Queue<T>::ConstIterator::operator*() const {
 } 
 
 template<class T>
-typename Queue<T>::ConstIterator& Queue<T>::ConstIterator::operator++() const{
+typename Queue<T>::ConstIterator& Queue<T>::ConstIterator::operator++(){
     if (index == -1) {
         throw Queue<T>::Iterator::InvalidOperation::Bad;
     }
