@@ -221,7 +221,7 @@ const T& Queue<T>::ConstIterator::operator*() const {
 template<class T>
 typename Queue<T>::ConstIterator& Queue<T>::ConstIterator::operator++(){
     if (index == -1) {
-        throw Queue<T>::Iterator::InvalidOperation::Bad;
+        throw Queue<T>::ConstIterator::InvalidOperation::Bad;
     }
     --index;
     return *this;
