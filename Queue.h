@@ -143,12 +143,12 @@ class Queue<T>::Const_iterator {
 
 template<class T>
 typename Queue<T>::Iterator Queue<T>::begin() const {
-    return Iterator(this, 0);
+    return Iterator(this, dataSize - 1);
 }
 
 template<class T>
 typename Queue<T>::Iterator Queue<T>::end() const {
-    return Iterator(this, dataSize);
+    return Iterator(this, 0);
 }
 
 template<class T>
@@ -163,7 +163,7 @@ const T& Queue<T>::Iterator::operator*() const {
 
 template<class T>
 typename Queue<T>::Iterator& Queue<T>::Iterator::operator++() {
-    ++index;
+    --index;
     return *this;
 }
 
