@@ -6,6 +6,7 @@ void runTest(std::function<bool()> testFunction, std::string testName)
 {
 	if(!testFunction()){
 		std::cout << testName <<" FAILED." << std::endl;
+		std::cout <<  "we up in here now boi." << std::endl;
 	}
 	else {
 		std::cout << testName << " SUCCEEDED." << std::endl;
