@@ -123,13 +123,13 @@ void transform(Queue<T2>& queue, Transformation f) {
 
 template<class T>
 class Queue<T>::Iterator {
-    Queue<T>* queue;
+    const Queue<T>* queue;
     int index;
     Iterator(const Queue<T>* queue, int index);
     friend class Queue<T>;
 
     public:
-    T& operator*() const;
+    const T& operator*() const;
     Iterator& operator++();
     Iterator operator++(int);
     bool operator==(const Iterator& iterator) const;
@@ -180,20 +180,6 @@ bool Queue<T>::Iterator::operator!=(const Iterator& i) const {
 
 template<class T>
 class Queue<T>::ConstIterator {
-    const Queue<T>* queue;
-    int index;
-    Iterator(const Queue<T>* queue, int index);
-    friend class Queue<T>;
-
-    public:
-    const T& operator*() const;
-    Iterator& operator++();
-    Iterator operator++(int);
-    bool operator==(const Iterator& iterator) const;
-    bool operator!=(const Iterator& iterator) const;
-    Iterator(const Iterator&) = default;
-    Iterator& operator=(const Iterator&) = default;
-    enum InvalidOperation { Bad };
     ConstIterator begin() const;
     ConstIterator end() const; 
 };
