@@ -125,7 +125,7 @@ template<class T>
 class Queue<T>::Iterator {
     Queue<T>* queue;
     int index;
-    Iterator(const Queue<T>* queue, int index);
+    Iterator(Queue<T>* queue, int index);
     friend class Queue<T>;
 
     public:
@@ -150,7 +150,7 @@ typename Queue<T>::Iterator Queue<T>::end() const {
 }
 
 template<class T>
-Queue<T>::Iterator::Iterator(const Queue<T>* queue, int index) :
+Queue<T>::Iterator::Iterator(Queue<T>* queue, int index) :
     queue(queue), index(index)
 {}
 
