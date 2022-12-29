@@ -123,7 +123,7 @@ void transform(Queue<T2>& queue, Transformation f) {
 
 template<class T>
 class Queue<T>::Iterator {
-    const Queue<T>* queue;
+    Queue<T>* queue;
     int index;
     Iterator(const Queue<T>* queue, int index);
     friend class Queue<T>;
