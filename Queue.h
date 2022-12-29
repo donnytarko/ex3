@@ -180,9 +180,61 @@ bool Queue<T>::Iterator::operator!=(const Iterator& i) const {
 
 template<class T>
 class Queue<T>::ConstIterator {
+    const Queue<T>* queue;
+    int index;
+    ConstIterator(const Queue<T>* queue, int index);
+    friend class Queue<T>;
+
+    public:
+    const T& operator*() const;
+    ConstIterator& operator++() const;
+    ConstIterator operator++(int) const;
+    bool operator==(const ConstIterator& iterator) const;
+    bool operator!=(const ConstIterator& iterator) const;
+    ConstIterator(const ConstIterator&) = default;
+    ConstIterator& operator=(const ConstIterator&) = default;
+    enum InvalidOperation { Bad };
     ConstIterator begin() const;
     ConstIterator end() const; 
 };
 
+template<class T>
+typename Queue<T>::ConstIterator Queue<T>::ConstIterator::begin() const {
+    return ConstIterator(this, dataSize - 1);
+}
+
+template<class T>
+typename Queue<T>::ConstIterator Queue<T>::ConstIterator::end() const{
+    return ConstIterator(this, -1);
+}
+
+template<class T>
+Queue<T>::ConstIterator::ConstIterator(const Queue<T>* queue, int index) :
+    queue(queue), index(index)
+{}
+
+template<class T>
+const T& Queue<T>::ConstIterator::operator*() const {
+    return queue->data[index];
+} 
+
+template<class T>
+typename Queue<T>::ConstIterator& Queue<T>::ConstIterator::operator++() const{
+    if (index == -1) {
+        throw Queue<T>::Iterator::InvalidOperation::Bad;
+    }
+    --index;
+    return *this;
+}
+
+template<class T>
+bool Queue<T>::ConstIterator::operator==(const ConstIterator& i) const {
+    return index == i.index;
+} 
+
+template<class T>
+bool Queue<T>::ConstIterator::operator!=(const ConstIterator& i) const {
+    return !(*this == i);
+}
 
 #endif //QUEUE
