@@ -148,7 +148,7 @@ typename Queue<T>::Iterator Queue<T>::begin() const {
 
 template<class T>
 typename Queue<T>::Iterator Queue<T>::end() const {
-    return Iterator(this, 0);
+    return Iterator(this, -1);
 }
 
 template<class T>
