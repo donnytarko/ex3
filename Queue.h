@@ -27,6 +27,8 @@ class Queue {
     Iterator begin();
     Iterator end(); 
     class ConstIterator;
+    ConstIterator begin() const;
+    ConstIterator end() const; 
     enum EmptyQueue { Bad };
 };
 
@@ -194,17 +196,15 @@ class Queue<T>::ConstIterator {
     ConstIterator(const ConstIterator&) = default;
     ConstIterator& operator=(const ConstIterator&) = default;
     enum InvalidOperation { Bad };
-    ConstIterator begin() const;
-    ConstIterator end() const; 
 };
 
 template<class T>
-typename Queue<T>::ConstIterator Queue<T>::ConstIterator::begin() const {
+typename Queue<T>::ConstIterator Queue<T>::begin() const {
     return ConstIterator(this, dataSize - 1);
 }
 
 template<class T>
-typename Queue<T>::ConstIterator Queue<T>::ConstIterator::end() const{
+typename Queue<T>::ConstIterator Queue<T>::end() const{
     return ConstIterator(this, -1);
 }
 
