@@ -24,8 +24,8 @@ class Queue {
     void popFront();
     int size() const;
     class Iterator;
-    Iterator begin() const;
-    Iterator end() const; 
+    Iterator begin();
+    Iterator end(); 
     class ConstIterator;
     enum EmptyQueue { Bad };
 };
@@ -140,12 +140,12 @@ class Queue<T>::Iterator {
 };
 
 template<class T>
-typename Queue<T>::Iterator Queue<T>::begin() const {
+typename Queue<T>::Iterator Queue<T>::begin() {
     return Iterator(this, dataSize - 1);
 }
 
 template<class T>
-typename Queue<T>::Iterator Queue<T>::end() const {
+typename Queue<T>::Iterator Queue<T>::end() {
     return Iterator(this, -1);
 }
 
