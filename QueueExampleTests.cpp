@@ -46,30 +46,19 @@ bool testQueueMethods()
 bool testModuleFunctions()
 {
 	bool testResult = true;
-	std::cout << "in test mod funcitons function " << std::endl;
 
 	Queue<int> queue3;
 	for (int i = 1; i <= 10; i++) {
 		queue3.pushBack(i);
 	}
-		std::cout << "btw 3 and 4 " << std::endl;
 
-	Queue<int> pizzatime = queue3;
-
-	for (int i = 1; i <= 10; i++) {
-		int front4 = pizzatime.front();
-		std::cout << "pizzatime is " << front4 << std::endl;
-		pizzatime.popFront();
-	}
 	Queue<int> queue4 = filter(queue3, isEven);
 	for (int i = 2; i <= 10; i+=2) {
 		int front4 = queue4.front();
-		std::cout << "queue4 is" << front4 << std::endl;
 		AGREGATE_TEST_RESULT(testResult, front4 == i);
 		queue4.popFront();
 	}
 
-	std::cout << "test restult after queue 4 is " << testResult << std::endl;
 	Queue<int> queue5;
 	for (int i = 1; i <= 5; i++) {
 		queue5.pushBack(i);
@@ -122,7 +111,6 @@ bool testConstQueue()
 	for (Queue<int>::ConstIterator i = constQueue.begin(); i != constQueue.end(); ++i) {
 		AGREGATE_TEST_RESULT(testResult, (*i == 42));
 	}
-	std::cout << "test restult way over here is " << testResult << std::endl;
 
 	bool exceptionThrown = false;
 	Queue<int>::ConstIterator endConstIterator = constQueue.end();

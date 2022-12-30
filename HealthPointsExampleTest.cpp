@@ -37,30 +37,21 @@ bool testInitialization()
 
 bool testArithmaticOperators()
 {
-	std::cout << "Arithmacy" << std::endl;
 
 	bool testResult = true;
 	HealthPoints healthPoints1; /* has 100 points out of 100 */
-	std::cout << "1 init" << std::endl;
 	HealthPoints healthPoints2(150); /* has 150 points out of 150 */
-	std::cout << "2 init" << std::endl;
-	std::cout << "result 0 is " << testResult << std::endl;
-
 	healthPoints1 -= 20; /* now has 80 points out of 100 */
 	testResult = testResult && checkHealthPointsValues(healthPoints1, 80, 100);
-	std::cout << "result 1 is " << testResult << std::endl;
 
 	healthPoints1 += 100; /* now has 100 points out of 100 */
 	testResult = testResult && checkHealthPointsValues(healthPoints1, 100, 100);
-	std::cout << "result 2 is " << testResult << std::endl;
 
 	healthPoints1 -= 150; /* now has 0 points out of 100 */
 	testResult = testResult && checkHealthPointsValues(healthPoints1, 0, 100);
-	std::cout << "result 3 is " << testResult << std::endl;
 
 	healthPoints2 = healthPoints2 - 160; /* now has 0 points out of 150 */
 	testResult = testResult && checkHealthPointsValues(healthPoints2, 0, 150);
-	std::cout << "result 4 is " << testResult << std::endl;
 
 	healthPoints2 = 160 + healthPoints1; /* now has 100 out of 100 */
 	testResult = testResult && checkHealthPointsValues(healthPoints2, 100, 100);
@@ -71,7 +62,6 @@ bool testArithmaticOperators()
 
 bool testComparisonOperators()
 {
-	std::cout << "comparison" << std::endl;
 	bool testResult = true;
 	HealthPoints healthPoints1 = HealthPoints(100); /* has 100 points out of 100 */
 	HealthPoints healthPoints2 = 100; /* has 100 points out of 100 */
@@ -98,7 +88,6 @@ bool testComparisonOperators()
 
 bool testOutputOperator()
 {
-	std::cout << "output" << std::endl;
 	bool testResult = true;
 	std::ostringstream stream;
 
