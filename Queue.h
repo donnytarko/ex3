@@ -35,12 +35,20 @@ class Queue {
 template<class T>
 Queue<T>::Queue() {
     dataSize = initialSize;
-    data = new T[initialSize];
+    try {
+        data = new T[initialSize];
+    } catch () {
+        throw std::bad_alloc;
+    }
 }
 
 template<class T>
 Queue<T>::Queue(const Queue& otherQueue) {
-    data = new T[otherQueue.dataSize];
+    try {
+        data = new T[otherQueue.dataSize];
+    } catch() {
+        throw std::bad_alloc;
+    }
     dataSize = otherQueue.dataSize;
     for (int i = 0; i < dataSize; ++i) {
         data[i] = otherQueue.data[i];
