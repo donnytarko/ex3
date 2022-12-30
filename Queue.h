@@ -9,10 +9,10 @@ template<class T>
 class Queue {
     int dataSize;
     T* data;
-    template<class Condition>
-    friend Queue<T> filter(Queue<T>& queue, Condition c);
-    template<class Transformation>
-    friend void transform(Queue<T>& queue, Transformation f);
+    template<class T2, class Condition>
+    friend Queue<T2> filter(Queue<T2>& queue, Condition c);
+    template<class T2, class Transformation>
+    friend void transform(Queue<T2>& queue, Transformation f);
 
     public:
     Queue();
@@ -113,10 +113,10 @@ int Queue<T>::size() const {
     return dataSize;
 }
 
-template<class T, class Condition>
-Queue<T> filter(Queue<T>& queue, Condition c) {
-    Queue<T> filteredQueue;
-    for ( T iteration : queue) {
+template<class T2, class Condition>
+Queue<T2> filter(Queue<T2>& queue, Condition c) {
+    Queue<T2> filteredQueue;
+    for ( T2 iteration : queue) {
         if (c(iteration)) {
             filteredQueue.pushBack(iteration);
         }
@@ -124,10 +124,10 @@ Queue<T> filter(Queue<T>& queue, Condition c) {
     return filteredQueue;
 }
 
-template<class T, class Transformation>
-void transform(Queue<T>& queue, Transformation f) {
-    Queue<T> transformedQueue;
-    for ( T iteration : queue) {
+template<class T2, class Transformation>
+void transform(Queue<T2>& queue, Transformation f) {
+    Queue<T2> transformedQueue;
+    for ( T2 iteration : queue) {
         f(iteration);
     }
     queue = transformedQueue;
