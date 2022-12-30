@@ -102,13 +102,13 @@ int Queue<T>::size() const {
 
 template<class T2, class Condition>
 Queue<T2> filter(Queue<T2>& queue, Condition c) {
-    Queue<T2> *filteredQueue = new Queue<T2>();
+    Queue<T2> filteredQueue;
     for ( T2 iteration : queue) {
         if (c(iteration)) {
             filteredQueue->pushBack(iteration);
         }
     }
-    return *filteredQueue;
+    return filteredQueue;
 }
 
 template<class T2, class Transformation>
