@@ -37,8 +37,8 @@ Queue<T>::Queue() {
     dataSize = initialSize;
     try {
         data = new T[initialSize];
-    } catch () {
-        throw std::bad_alloc;
+    } catch (...) {
+        throw;
     }
 }
 
@@ -46,8 +46,8 @@ template<class T>
 Queue<T>::Queue(const Queue& otherQueue) {
     try {
         data = new T[otherQueue.dataSize];
-    } catch() {
-        throw std::bad_alloc;
+    } catch(...) {
+        throw;
     }
     dataSize = otherQueue.dataSize;
     for (int i = 0; i < dataSize; ++i) {
