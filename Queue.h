@@ -9,9 +9,9 @@ template<class T>
 class Queue {
     int dataSize;
     T* data;
-    template<class T, class Condition>
+    template<class Condition>
     friend Queue<T> filter(Queue<T>& queue, Condition c);
-    template<class T, class Transformation>
+    template<class Transformation>
     friend void transform(Queue<T>& queue, Transformation f);
 
     public:
