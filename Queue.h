@@ -60,9 +60,12 @@ Queue<T>& Queue<T>::operator=(const Queue<T>& otherQueue) {
     if (this == &otherQueue) {
         return *this;
     }
-
     delete[] data;
-    data = new T[otherQueue.dataSize];
+    try {
+        data = new T[otherQueue.dataSize];
+    } catch(...) {
+        throw;
+    }
     dataSize = otherQueue.dataSize;
     for (int i = 0; i < dataSize; ++i) {
         data[i] = otherQueue.data[i];
@@ -78,7 +81,11 @@ Queue<T>::~Queue() {
 
 template<class T>
 void Queue<T>::pushBack(T element) {
-    T* newData = new T[dataSize + 1];
+    try {
+        T* newData = new T[dataSize + 1];
+    } catch(...) {
+        throw;
+    }
     newData[0] = element;
     for (int i = 1; i < dataSize + 1; i++) {
         newData[i] = data[i - 1];
