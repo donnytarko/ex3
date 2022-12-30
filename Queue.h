@@ -88,11 +88,8 @@ void Queue<T>::pushBack(T element) {
             newData[i] = data[i - 1];
         }
         delete[] data;
-    data = newData;
-    } catch(const std::bad_alloc&) {
-        throw;
+        data = newData;
     } catch(...) {
-        delete[] newData;
         throw;
     }
     dataSize += 1;
