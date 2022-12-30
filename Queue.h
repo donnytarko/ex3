@@ -37,7 +37,7 @@ Queue<T>::Queue() {
     dataSize = initialSize;
     try {
         data = new T[initialSize];
-    } catch (...) {
+    } catch (const std::bad_alloc&) {
         throw;
     }
 }
@@ -46,7 +46,7 @@ template<class T>
 Queue<T>::Queue(const Queue& otherQueue) {
     try {
         data = new T[otherQueue.dataSize];
-    } catch(...) {
+    } catch(const std::bad_alloc&) {
         throw;
     }
     dataSize = otherQueue.dataSize;
@@ -63,7 +63,7 @@ Queue<T>& Queue<T>::operator=(const Queue<T>& otherQueue) {
     delete[] data;
     try {
         data = new T[otherQueue.dataSize];
-    } catch(...) {
+    } catch(const std::bad_alloc&) {
         throw;
     }
     dataSize = otherQueue.dataSize;
@@ -89,7 +89,7 @@ void Queue<T>::pushBack(T element) {
         }
         delete[] data;
         data = newData;
-    } catch(...) {
+    } catch(const std::bad_alloc&) {
         throw;
     }
     dataSize += 1;
