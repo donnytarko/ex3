@@ -98,7 +98,7 @@ void Queue<T>::pushBack(T element) {
 template<class T>
 T& Queue<T>::front() const {
     if (dataSize == 0) {
-        throw Queue<T>::EmptyQueue;
+        throw Queue<T>::EmptyQueue();
     }
     return data[dataSize - 1];
 }
