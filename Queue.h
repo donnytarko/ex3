@@ -29,7 +29,7 @@ class Queue {
     class ConstIterator;
     ConstIterator begin() const;
     ConstIterator end() const; 
-    class EmptyQueue;
+    class EmptyQueue {};
 };
 
 template<class T>
