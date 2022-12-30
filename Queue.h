@@ -148,7 +148,7 @@ class Queue<T>::Iterator {
     bool operator!=(const Iterator& iterator) const;
     Iterator(const Iterator&) = default;
     Iterator& operator=(const Iterator&) = default;
-    enum InvalidOperation { Bad };
+    class InvalidOperation {};
 };
 
 template<class T>
@@ -174,7 +174,7 @@ const T& Queue<T>::Iterator::operator*() const {
 template<class T>
 typename Queue<T>::Iterator& Queue<T>::Iterator::operator++() {
     if (index == -1) {
-        throw Queue<T>::Iterator::InvalidOperation::Bad;
+        throw Queue<T>::Iterator::InvalidOperation();
     }
     --index;
     return *this;
@@ -204,7 +204,7 @@ class Queue<T>::ConstIterator {
     bool operator!=(const ConstIterator& iterator) const;
     ConstIterator(const ConstIterator&) = default;
     ConstIterator& operator=(const ConstIterator&) = default;
-    enum InvalidOperation { Bad };
+    class InvalidOperation {};
 };
 
 template<class T>
@@ -230,7 +230,7 @@ const T& Queue<T>::ConstIterator::operator*() const {
 template<class T>
 typename Queue<T>::ConstIterator& Queue<T>::ConstIterator::operator++(){
     if (index == -1) {
-        throw Queue<T>::ConstIterator::InvalidOperation::Bad;
+        throw Queue<T>::ConstIterator::InvalidOperation();
     }
     --index;
     return *this;
