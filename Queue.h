@@ -95,7 +95,6 @@ void Queue<T>::pushBack(T element) {
     dataSize += 1;
 }
 
-
 template<class T>
 T& Queue<T>::front() const {
     if (dataSize == 0) {
@@ -103,7 +102,6 @@ T& Queue<T>::front() const {
     }
     return data[dataSize - 1];
 }
-
 
 template<class T>
 void Queue<T>::popFront() {
@@ -146,7 +144,6 @@ class Queue<T>::Iterator {
     public:
     const T& operator*() const;
     Iterator& operator++();
-    Iterator operator++(int);
     bool operator==(const Iterator& iterator) const;
     bool operator!=(const Iterator& iterator) const;
     Iterator(const Iterator&) = default;
@@ -203,7 +200,6 @@ class Queue<T>::ConstIterator {
     public:
     const T& operator*() const;
     ConstIterator& operator++();
-    ConstIterator operator++(int);
     bool operator==(const ConstIterator& iterator) const;
     bool operator!=(const ConstIterator& iterator) const;
     ConstIterator(const ConstIterator&) = default;
