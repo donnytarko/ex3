@@ -2,13 +2,13 @@
 
 HealthPoints::HealthPoints(int maxHp) {
     if (maxHp <= 0) {
-        throw HealthPoints::InvalidArgument::Bad;
+        throw HealthPoints::InvalidArgument();
     }
     max = maxHp;
     value = maxHp;
 }
 
-HealthPoints operator+(HealthPoints hp, int change){
+HealthPoints operator+(HealthPoints& hp, int change){
     if (hp.value + change >= hp.max) {
         hp.value = hp.max;
         return hp;
@@ -17,7 +17,7 @@ HealthPoints operator+(HealthPoints hp, int change){
     return hp;
 }
 
-HealthPoints operator+(int change, HealthPoints hp){
+HealthPoints operator+(int change, HealthPoints& hp){
     if (hp.value + change >= hp.max) {
         hp.value = hp.max;
         return hp;
@@ -26,7 +26,7 @@ HealthPoints operator+(int change, HealthPoints hp){
     return hp;
 }
 
-HealthPoints operator-(HealthPoints hp, int change){
+HealthPoints operator-(HealthPoints& hp, int change){
     if (hp.value - change <= 0) {
         hp.value = 0;
         return hp;
@@ -35,7 +35,7 @@ HealthPoints operator-(HealthPoints hp, int change){
     return hp;
 }
 
-HealthPoints operator-(int change, HealthPoints hp){
+HealthPoints operator-(int change, HealthPoints& hp){
     if (hp.value - change <= 0) {
         hp.value = 0;
         return hp;
