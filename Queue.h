@@ -81,8 +81,9 @@ Queue<T>::~Queue() {
 
 template<class T>
 void Queue<T>::pushBack(T element) {
+    T* newData;
     try {
-        T* newData = new T[dataSize + 1];
+        newData = new T[dataSize + 1];
         newData[0] = element;
         for (int i = 1; i < dataSize + 1; i++) {
             newData[i] = data[i - 1];
@@ -90,6 +91,9 @@ void Queue<T>::pushBack(T element) {
         delete[] data;
         data = newData;
     } catch(const std::bad_alloc&) {
+        throw;
+    } catch(...) {
+        delete[] newData;
         throw;
     }
     dataSize += 1;
